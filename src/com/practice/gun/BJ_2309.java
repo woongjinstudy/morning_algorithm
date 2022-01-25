@@ -3,7 +3,7 @@ package com.practice.gun;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BOJ_2309 {
+public class BJ_2309 {
 
     static int[] arr = new int[9];
     static int[] answer = new int[7];
