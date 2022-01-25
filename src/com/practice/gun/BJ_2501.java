@@ -3,7 +3,7 @@ package com.practice.gun;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BJ2501 {
+public class BJ_2501 {
 
     public static void main(String[] args) {
 
