@@ -1,4 +1,4 @@
-package com.practice.WJStudy;
+package com.practice.jinsoo;
 
 import java.util.ArrayList;
 import java.util.Collections;
