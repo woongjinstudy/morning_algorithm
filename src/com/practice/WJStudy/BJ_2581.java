@@ -2,7 +2,7 @@ package com.practice.WJStudy;
 
 import java.util.Scanner;
 
-public interface BJ_2581 {
+public class BJ_2581 {
     public static void main(String[] args) {
         boolean prime[] = new boolean[10001];
         int MAX = 1000;
