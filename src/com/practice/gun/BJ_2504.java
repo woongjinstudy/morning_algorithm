@@ -17,13 +17,13 @@ public class BJ_2504 {
             } else {
                 if (s.equals(")")) {
 
-                    if (stack.size() == 0) {
+                    if (stack.isEmpty()) {
                         System.out.println(0);
                         return;
                     } else {
                         if (stack.peek().equals("(")) {
                             stack.pop();
-                            if (stack.size() > 0 && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
+                            if (!stack.isEmpty() && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
                                 int top = Integer.parseInt(stack.pop());
                                 stack.push(Integer.toString(top + 2));
                             } else stack.push("2");
@@ -32,10 +32,10 @@ public class BJ_2504 {
                             return;
                         } else {
                             int top = Integer.parseInt(stack.pop());
-                            if (stack.peek().equals("(")) {
+                            if (!stack.isEmpty() && stack.peek().equals("(")) {
                                 stack.pop();
 
-                                if (stack.size() > 0 && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
+                                if (!stack.isEmpty() && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
                                     int second = Integer.parseInt(stack.pop());
                                     stack.push(Integer.toString(second + top * 2));
                                 } else stack.push(Integer.toString(top * 2));
@@ -47,13 +47,13 @@ public class BJ_2504 {
                     }
 
                 } else {
-                    if (stack.size() == 0) {
+                    if (stack.isEmpty()) {
                         System.out.println(0);
                         return;
                     } else {
                         if (stack.peek().equals("[")) {
                             stack.pop();
-                            if (stack.size() > 0 && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
+                            if (!stack.isEmpty() && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
                                 int top = Integer.parseInt(stack.pop());
                                 stack.push(Integer.toString(top + 3));
                             } else stack.push("3");
@@ -62,9 +62,9 @@ public class BJ_2504 {
                             return;
                         } else {
                             int top = Integer.parseInt(stack.pop());
-                            if (stack.peek().equals("[")) {
+                            if (!stack.isEmpty() && stack.peek().equals("[")) {
                                 stack.pop();
-                                if (stack.size() > 0 && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
+                                if (!stack.isEmpty() && !stack.peek().equals("(") && !stack.peek().equals(")") && !stack.peek().equals("[") && !stack.peek().equals("]")) {
                                     int second = Integer.parseInt(stack.pop());
                                     stack.push(Integer.toString(second + top * 3));
                                 } else stack.push(Integer.toString(top * 3));
@@ -78,7 +78,9 @@ public class BJ_2504 {
             }
         }
 
-        System.out.println(stack.pop());
+        if (stack.size() != 1 || stack.peek().equals("(") || stack.peek().equals(")") || stack.peek().equals("[") || stack.peek().equals("]")) {
+            System.out.println(0);
+        } else System.out.println(stack.pop());
 
     }
 
