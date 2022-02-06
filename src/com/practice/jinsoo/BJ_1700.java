@@ -32,7 +32,7 @@ public class BJ_1700 {
                 for (int tab : tabs) {
                     if (chkNotIn(tab, schedule, j)) {
                         tmp = tab;
-                        break;
+                        continue;
                     } else if(findIndexAfterUse(tab, schedule, j) > cnt) {
                         cnt = findIndexAfterUse(tab, schedule, j);
                         tmp = tab;
