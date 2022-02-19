@@ -1,3 +1,5 @@
+package com.practice.yeseul;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;

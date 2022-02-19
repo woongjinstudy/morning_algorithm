@@ -1,3 +1,5 @@
+package com.practice.yeseul;
+
 import java.util.Scanner;
 
 public class BJ_1806 {
