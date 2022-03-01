@@ -3,7 +3,7 @@ package com.practice.gun;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class BJ_2789 {
+public class BJ_2798 {
 
     static int n, m;
     static int[] ch = new int[3];
@@ -30,7 +30,7 @@ public class BJ_2789 {
 
         }
 
-        DFS(0);
+        DFS(0, 0);
 
         bw.write(answer + "\n");
 
@@ -40,20 +40,18 @@ public class BJ_2789 {
 
     }
 
-    private static void DFS(int L) {
+    private static void DFS(int L, int s) {
 
         if (L == 3) {
             int sum = 0;
             for (int i : ch) {
-//                sum += i;
-                System.out.print(i+" / ");
+                sum += i;
             }
-            System.out.println();
-//            if (sum <= m) answer = Math.max(answer, sum);
+            if (sum <= m) answer = Math.max(answer, sum);
         } else {
-            for (int i = L; i < n; i++) {
+            for (int i = s; i < n; i++) {
                 ch[L] = arr[i];
-                DFS(L + 1);
+                DFS(L + 1, i + 1);
             }
         }
     }
