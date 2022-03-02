@@ -7,7 +7,7 @@ public class BJ_11053 {
 
     static int n;
     static int[] arr;
-    static int answer = 0;
+    static int[] ch;
 
     public static void main(String[] args) throws IOException {
 
@@ -19,12 +19,30 @@ public class BJ_11053 {
         n = Integer.parseInt(st.nextToken());
         st = new StringTokenizer(br.readLine());
 
-        int idx = 0;
         arr = new int[n];
-        while (st.hasMoreTokens()) {
-            arr[idx] = Integer.parseInt(st.nextToken());
-            idx++;
+        ch = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
+
+        ch[0] = 1;
+
+        for (int i = 1; i < n; i++) {
+            ch[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (arr[i] > arr[j] && ch[i] <= ch[j]) {
+                    ch[i] = ch[j] + 1;
+                }
+            }
+        }
+
+        int answer = 0;
+        for (int i = 0; i < n; i++) {
+            answer = Math.max(answer, ch[i]);
+        }
+
+        bw.write(answer + "\n");
 
         bw.flush();
         bw.close();
